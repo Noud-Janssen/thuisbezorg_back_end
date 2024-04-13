@@ -1,0 +1,11 @@
+:root {
+    --black: #353535;
+    --gray: #D2D7DF;
+    --green: #7BC950;
+    --l_green: #7CE577;
+    --red: #DA2C38;
+}
+
+* {
+    background-color: var(--black);
+}
