@@ -28,4 +28,17 @@ class ContactController extends Controller
 
         return view('contact_status');
     }
+
+    public function markRead(Request $request)
+    {
+        $reqs = $request->validate([
+            "id" => 'required'
+        ]);
+
+        $message = \App\Models\Message::find($request->id);
+        $message["is_read"] = true;
+        $message->save();
+
+        return redirect()->route('admin.messages');
+    }
 }

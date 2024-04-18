@@ -17,9 +17,16 @@
             @show
             <div class="link_row">
                 <a href="/">Home</a>
-                <a href="/menu">Menu</a>
+                <a href="{{route('menu')}}">Menu</a>
                 <a href="/contact">Contact</a>
+
+                @auth
+                <a href="/admin">Account</a>   
+                @endauth
+
+                @guest
                 <a href="/users/login">Login</a>
+                @endguest
             </div>
         </header>
         <div class="fixed_margin"></div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("sender_name");
             $table->string("text");
             $table->string("email");
+            $table->boolean("is_read")->default(false);
         });
     }
 

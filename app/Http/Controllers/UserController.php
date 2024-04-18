@@ -10,7 +10,6 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-
         $request->validate([
             "mail"=>"required",
             "name"=>"required",
@@ -23,12 +22,10 @@ class UserController extends Controller
         $new_user->email = $request->mail;
         $new_user->password = $request->pwd;
 
-
-
         $new_user->save();
 
         
-        return view("User.register", ["error"=>1]);
+        return view("User.register", ["error"=>true]);
         return redirect()->route('home.page');
     }
 
