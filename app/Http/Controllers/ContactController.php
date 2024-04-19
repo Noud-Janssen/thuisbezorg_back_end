@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\message;
+use App\Models\Message;
 
 class ContactController extends Controller
 {
@@ -17,7 +17,7 @@ class ContactController extends Controller
             "message_txt" => 'required'
         ]);
 
-        $post_item = new message;
+        $post_item = new Message;
 
         $post_item->subject = $request->subject;
         $post_item->sender_name = $request->from;

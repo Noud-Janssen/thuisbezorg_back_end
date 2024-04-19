@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Items;
 use App\Models\Message;
+use App\Models\Reservations;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Food_itemController;
+use App\Http\Controllers\ReservationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +40,20 @@ Route::get('/menu/{item}', function (App\Models\Food_item $item) {
 
 Route::post('/admin/menu', [Food_itemController::class, 'postHandler'])->name("items.crud");
 
+
 //Contact
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/contact', [ContactController::class, 'contactPost'])->name("contact.post");
 Route::post('/admin/messages', [ContactController::class, 'markRead'])->name('contact.mark_read');
+
+//Reservations
+Route::get('/reserveren' , function() {
+    return view('reservation');
+});
+Route::post('/reserveren', [ReservationsController::class, "create"])->name('reservations.create');
+Route::post('/admin/reservations', [ReservationsController::class, "edit"])->name('reservations.edit');
 
 Route::group(['middleware'=>'guest'], function() {
     //Account
@@ -83,4 +93,8 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/admin/messages', function() {
         return view("admin.messages",["messages"=>Message::all()]);
     })->name('admin.messages');
+
+    Route::get('/admin/reservations', function() {
+        return view("admin.reservations",["reservations"=>Reservations::all()]);
+    })->name('admin.reservations');
 });

@@ -13,15 +13,16 @@
             <h1>@yield('title')</h1>
 
             @section('header')
-    
+
             @show
             <div class="link_row">
                 <a href="/">Home</a>
                 <a href="{{route('menu')}}">Menu</a>
                 <a href="/contact">Contact</a>
+                <a href="/reserveren">Reserveren</a>
 
                 @auth
-                <a href="/admin">Account</a>   
+                <a href="/admin">Admin</a>
                 @endauth
 
                 @guest
@@ -43,6 +44,6 @@
             @section('footer')
 
             @show
-        </footer> 
+        </footer>
     </body>
 </html>

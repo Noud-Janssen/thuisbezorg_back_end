@@ -9,13 +9,11 @@
 
 <h1>Welcome {{auth()->user()->name}}</h1>
 
-<div class="bg-gray col">
-    <a href="{{route('admin.menu')}}">Edit menu</a>
-    <a href="{{route('admin.messages')}}">Messages</a>
-</div>
-
 <form method="post" action="{{route('users.logout')}}" style="width: 500px">
     @csrf
+    <a class="padding" href="{{route('admin.menu')}}">Edit menu</a>
+    <a class="padding" href="{{route('admin.messages')}}">Messages</a>
+    <a class="padding" href="{{route('admin.reservations')}}">Reservations</a>
     <input type="submit" value="logout"/>
 </form>
 
