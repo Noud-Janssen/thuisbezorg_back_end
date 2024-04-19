@@ -6,10 +6,7 @@
 @section('main')
 
 <div class="row w-100per padding margin wrap center">
-    <form class="bg-gray col-white w-1000 border-radios padding margin" method="POST" action="{{ Route('items.crud')}}">
-        @csrf
-        <input type="submit" name="action" value="Create"/>
-    </form>
+
     @foreach ($items as $item)
     <form class="bg-gray col-white w-1000 border-radios padding margin" method="POST" action="{{ Route('items.crud')}}">
         @csrf
@@ -32,6 +29,11 @@
         </div>
     </form>
     @endforeach
+
+    <form class="bg-gray col-white w-1000 border-radios padding margin" method="POST" action="{{ Route('items.crud')}}">
+        @csrf
+        <input type="submit" name="action" value="Create"/>
+    </form>
 </div>
 
 
